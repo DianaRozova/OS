@@ -7,6 +7,6 @@ then
 echo "$file is a directory"
 elif [ -f "$file" ]
 then
-echo "$file"
+stat "$file"
 fi
 done
