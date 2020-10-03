@@ -1,12 +1,7 @@
 #!/bin/bash
 # 1 dir find
-for file in $(find $1 -type f -print)
-do
-if [ -d "$file" ]
-then
-echo "$file is a directory"
-elif [ -f "$file" ]
-then
-stat "$file"
-fi
+for i in "$@"; do
+   path=$(realpath -e $i);
+   find "$i" -printf "$path/%P %s %M\n";
 done
+echo "Count of files: "$(ls $1 -lR | wc -l);
