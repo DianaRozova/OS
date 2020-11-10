@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     mindate=atol(argv[5]);
     f1=fopen(argv[2],"w");
     
-    searchdir(argv[1]);
+    searchdir(realpath(argv[1], NULL));
     
     fclose(f1);
     return 0;
