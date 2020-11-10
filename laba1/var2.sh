@@ -1,7 +1,8 @@
 #!/bin/bash
 # 1 dir find
-path=$(realpath -e $1);
-for i in $(find $1 -depth -printf "$path/%P %s %M\n"); do
+k=0;
+IFS=$'\n';
+for i in $(find $(readlink -f $1) -printf "%p %s %M\n"); do
    echo "$i";
 done
 echo "Count of files: "$(ls $1 -lR | wc -l);
